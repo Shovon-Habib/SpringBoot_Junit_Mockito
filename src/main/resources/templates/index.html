@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<h1>Hello!! Good Day</h1>
+<h4><a href="#" th:href="@{/new_user}">New Registration</a></h4>
+
+<div th:if="${users}==null"><h3> No user found!!!</h3></div>
+<div th:if="${users}!=null">
+    <table style="border: 1px solid lightskyblue">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Email</td>
+        </tr>
+        <tr th:each="user :${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.email}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
