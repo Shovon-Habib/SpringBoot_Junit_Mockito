@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 @Table(name = "user")
 @Getter
 @Setter
-public class User{
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,6 +25,13 @@ public class User{
     private String password;
 
     public User() {
+    }
+
+    public User(Long id, String name, String email, String password) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
     }
 
     public User(String name, String email, String password) {

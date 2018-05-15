@@ -6,8 +6,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
+@RunWith(SpringRunner.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class UserServiceImplTest {
 
@@ -61,9 +64,9 @@ class UserServiceImplTest {
 
     private List<User> getMockUsers() {
         return new ArrayList<User>() {{
-            add(new User("Asif", "a@a.a", "123213"));
-            add(new User("Asif1", "a1@a.a", "123213"));
-            add(new User("Asif2", "a2@a.a", "123213"));
+            add(new User((long) 1, "Asif", "a@a.a", "123213"));
+            add(new User((long) 2, "Asif1", "a1@a.a", "123213"));
+            add(new User((long) 3, "Asif2", "a2@a.a", "123213"));
         }};
     }
 
